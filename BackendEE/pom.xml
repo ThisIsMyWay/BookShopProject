@@ -81,6 +81,7 @@
                                 <contextRoot>/bookshop</contextRoot>
                             </webModule>
                         </modules>
+                        <outputDirectory>../docker/dev/artifacts</outputDirectory>
                     </configuration>
                 </plugin>
                 <plugin>
