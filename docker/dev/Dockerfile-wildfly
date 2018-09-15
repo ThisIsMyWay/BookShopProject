@@ -22,14 +22,15 @@ WORKDIR /opt/jboss/wildfly/bin
 # add user 
 RUN sh add-user.sh admin admin123
 
-# MODIFY TO MAKE IT Debbugable 
-
+# make remote debug option works with java 10  
+RUN sed -i -- 's/dt_socket,address=/dt_socket,address=*:/g' standalone*
 
 # EXPOSE PORTS 
 EXPOSE 9990
 EXPOSE 8080
+EXPOSE 8787
 
 # RUN container with standalone 
-CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "--debug"]
 
 

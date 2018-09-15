@@ -3,9 +3,12 @@ version: '3'
 services:
   wildfly:
     image: wojleg256/wildfly-for-bookshop
-    build: Dockerfile-wildfly
+    build: 
+      context: .
+      dockerfile: Dockerfile-wildfly
     ports:
       - "9990:9990"
       - "8080:8080"
+      - "8787:8787"
     volumes:
       - ./artifacts:/opt/jboss/wildfly/standalone/deployments
