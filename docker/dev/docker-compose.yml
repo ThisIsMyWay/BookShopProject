@@ -11,14 +11,14 @@ services:
       - "8080:8080"
       - "8787:8787"
     depends_on:
-      - oracledb
+      - psdb
     volumes:
       - ./artifacts:/opt/jboss/wildfly/standalone/deployments
-  oracledb:
-    image: oracle/database:18.3.0-se2
+  psdb:
+    image: postgres:11-alpine
     ports:
-      - "1521:1521"
+      - "5432:5432"
     environment:
-      - ORACLE_PWD=oracle
+      - POSTGRES_PASSWORD=admin111
     
   
