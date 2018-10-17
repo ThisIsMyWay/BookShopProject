@@ -11,5 +11,13 @@
 
     <artifactId>DataAccessLayer</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate-entitymanager.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 </project>

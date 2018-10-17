@@ -19,6 +19,7 @@
         <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
         <maven-ear-plugin.version>3.0.1</maven-ear-plugin.version>
         <maven-ear-plugin.applicationxml.version>8</maven-ear-plugin.applicationxml.version>
+        <hibernate-entitymanager.version>5.1.14.Final</hibernate-entitymanager.version>
     </properties>
 
     <modules>
@@ -34,19 +35,21 @@
                 <groupId>org.jboss.spec.javax.ws.rs</groupId>
                 <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
                 <version>${version.jaxrs}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax.enterprise</groupId>
                 <artifactId>cdi-api</artifactId>
                 <version>${cdi-api.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.spec.javax.ejb</groupId>
                 <artifactId>jboss-ejb-api_3.2_spec</artifactId>
                 <version>${jboss-ejb-api_3.2_spec.version}</version>
-                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate-entitymanager.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
