@@ -6,7 +6,10 @@
     <persistence-unit name="bookShopDB" transaction-type="JTA">
         <jta-data-source>java:/PostgresXADS</jta-data-source>
         <!-- Annotated entity classes -->
+        <class>com.playingwithee.dal.entities.Author</class>
         <class>com.playingwithee.dal.entities.Book</class>
+        <class>com.playingwithee.dal.entities.Category</class>
+        <class>com.playingwithee.dal.entities.Discount</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create-drop" /> <!-- create / create-drop / update -->
             <property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->

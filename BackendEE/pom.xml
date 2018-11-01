@@ -20,6 +20,7 @@
         <maven-ear-plugin.version>3.0.1</maven-ear-plugin.version>
         <maven-ear-plugin.applicationxml.version>8</maven-ear-plugin.applicationxml.version>
         <hibernate-entitymanager.version>5.1.14.Final</hibernate-entitymanager.version>
+        <lombok.version>1.18.2</lombok.version>
     </properties>
 
     <modules>
@@ -50,6 +51,11 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-entitymanager</artifactId>
                 <version>${hibernate-entitymanager.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
