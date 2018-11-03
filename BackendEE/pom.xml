@@ -21,6 +21,8 @@
         <maven-ear-plugin.applicationxml.version>8</maven-ear-plugin.applicationxml.version>
         <hibernate-entitymanager.version>5.1.14.Final</hibernate-entitymanager.version>
         <lombok.version>1.18.2</lombok.version>
+        <commons-io.version>2.5</commons-io.version>
+        <jboss-logging.version>3.3.1.Final</jboss-logging.version>
     </properties>
 
     <modules>
@@ -56,6 +58,16 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging</artifactId>
+                <version>${jboss-logging.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

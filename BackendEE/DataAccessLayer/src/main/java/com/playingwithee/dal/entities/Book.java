@@ -1,6 +1,7 @@
 package com.playingwithee.dal.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,7 +14,8 @@ import java.util.Set;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long bookId;
 
     @Column(name = "TITLE")
@@ -23,13 +25,14 @@ public class Book {
     private String isbn;
 
     @Column(name = "DESCRIPTION")
+    @Type(type="text")
     private String description;
 
     @Column(name = "PUBLISHING_DATE")
     private Date publishingDate;
 
-    @Column(name = "PRICE")
-    private BigDecimal price;
+    @Column(name = "BASE_PRICE")
+    private BigDecimal basePrice;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "BOOK_TO_AUTHOR",

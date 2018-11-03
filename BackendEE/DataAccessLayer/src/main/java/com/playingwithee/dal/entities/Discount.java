@@ -12,7 +12,8 @@ import java.util.Set;
 public class Discount {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long categoryId;
 
     @Column(name = "NAME_OF_PROMOTION")

@@ -12,7 +12,7 @@ import java.util.Set;
 public class Author {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long authorId;
 
@@ -22,11 +22,15 @@ public class Author {
     @Column(name = "SURNAME")
     private String surname;
 
-    @Column(name = "BIO")
-    private String bio;
-
     @Column(name = "BIRTH_DATE")
     private Date birthDate;
+
+    @Column(name = "BIRTH_DATE_ACCURACY_INDICATOR", columnDefinition = "integer default 0")
+    @Enumerated(EnumType.ORDINAL)
+    private DateAccuracy birthDateAccuracyIndicator;
+
+    @Column(name = "DEATH_DATE")
+    private Date deathDate;
 
     @ManyToMany(fetch = FetchType.LAZY,
             mappedBy = "authorList")
