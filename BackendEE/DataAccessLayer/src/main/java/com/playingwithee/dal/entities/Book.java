@@ -52,5 +52,11 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "category_id")})
     private Set<Category> categoryList;
 
-
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", title='" + title + '\'' +
+                '}';
+    }
 }
