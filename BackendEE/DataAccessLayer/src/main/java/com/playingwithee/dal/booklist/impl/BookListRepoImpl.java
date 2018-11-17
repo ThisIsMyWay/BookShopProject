@@ -4,25 +4,32 @@ package com.playingwithee.dal.booklist.impl;
 import com.playingwithee.dal.booklist.api.BookListRepo;
 import com.playingwithee.dal.booklist.api.dto.BookOverallData;
 import com.playingwithee.dal.entities.Book;
+import com.playingwithee.dal.entities.Discount;
 
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Stateful
 public class BookListRepoImpl implements BookListRepo {
 
     @PersistenceContext(unitName = "bookShopDB")
-    private EntityManager entityManager;
+    private transient EntityManager entityManager;
 
     @Override
     public Set<BookOverallData> getAllBooks() {
-        System.out.println("book list called");
-        Query query = entityManager.createQuery("SELECT b from Book as b");
-        List<Book> ersultList = query.getResultList();
-        return null;
+        TypedQuery<Book> query = entityManager.createNamedQuery("Book.findAll", Book.class);
+        List<Book> booksList = query.getResultList();
+        return booksList.stream()
+                .map(p -> new BookOverallData(p.getTitle(),
+                        p.getAuthorList().stream().map(author -> author.getName() + " " + author.getSurname()).collect(Collectors.joining()),
+                        p.getBasePrice(),
+                        p.getDiscountList().stream().map(Discount::getPercentageDiscount).reduce(BigDecimal.ZERO, BigDecimal::add)))
+                .collect(Collectors.toSet());
     }
 }

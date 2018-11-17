@@ -1,13 +1,15 @@
 package com.playingwithee.dal.entities;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "CATEGORY")
-@Data
+@Getter
+@Setter
 public class Category {
 
     @Id

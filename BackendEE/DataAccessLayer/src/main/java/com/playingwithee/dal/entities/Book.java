@@ -1,6 +1,8 @@
 package com.playingwithee.dal.entities;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -10,7 +12,9 @@ import java.util.Set;
 
 @Entity
 @Table(name = "BOOK")
-@Data
+@NamedQuery(name="Book.findAll", query = "SELECT b from Book as b")
+@Getter
+@Setter
 public class Book {
 
     @Id
@@ -52,11 +56,5 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "category_id")})
     private Set<Category> categoryList;
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "bookId=" + bookId +
-                ", title='" + title + '\'' +
-                '}';
-    }
+
 }
