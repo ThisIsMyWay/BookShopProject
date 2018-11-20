@@ -2,11 +2,13 @@ package com.playingwithee.service;
 
 import com.playingwithee.dal.booklist.api.BookListRepo;
 import com.playingwithee.dal.booklist.api.dto.BookOverallData;
+import org.jboss.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.inject.Inject;
 import java.util.Set;
 
 @Singleton
@@ -14,19 +16,23 @@ import java.util.Set;
 public class SampleSingleton {
 
     @EJB
-    BookListRepo repo;
+    private BookListRepo repo;
+
+    @Inject
+    private Logger logger;
+
+
 
     public SampleSingleton() {
-        System.out.println("sngleton running");
     }
 
 
     @PostConstruct
     public void postConstruct(){
-        System.out.println("sngleton postconstruct");
+        logger.info("sngleton postconstruct");
 
         Set<BookOverallData> allBooks = repo.getAllBooks();
-        System.out.println("sngleton s");
+        logger.info("sngleton s");
 
 
     }

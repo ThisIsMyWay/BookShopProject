@@ -30,6 +30,7 @@
         <module>Service</module>
         <module>DataAccessLayer</module>
         <module>BookShopEar</module>
+        <module>Commons</module>
     </modules>
 
     <dependencyManagement>
