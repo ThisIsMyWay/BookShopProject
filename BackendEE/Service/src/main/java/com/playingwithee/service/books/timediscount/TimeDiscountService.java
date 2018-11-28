@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class TimeDiscountService {
+class TimeDiscountService {
 
     private Set<TimeDiscount> listOfActualPromotions = new HashSet<>();
     private static final int AMOUNT_OF_DISCOUNTED_BOOKS = 3;
