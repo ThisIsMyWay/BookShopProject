@@ -9,5 +9,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TimeDiscount {
     private Long idOfBook;
-    private Integer percentageOfDiscount;
+    private Integer discountRate;
+
 }
