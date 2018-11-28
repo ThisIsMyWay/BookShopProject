@@ -8,9 +8,11 @@ import com.playingwithee.service.books.timediscount.TimeDiscountBean;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Stateless
 public class BooksService implements Serializable {
@@ -32,11 +34,13 @@ public class BooksService implements Serializable {
     private void updateBooksWithTimeDiscount(Set<BookOverallData> booksToReturn) {
         Set<TimeDiscount> actualPromotions = timeDiscountBean.getActualPromotions();
 
-        booksToReturn.forEach(
-            p -> {
-                final Optional<TimeDiscount> promotion = actualPromotions.stream().filter(ap -> Objects.equals(ap.getIdOfBook(), p.getIdOfBook())).findFirst();
-                promotion.ifPresent(ap -> p.setDiscountRate(ap.getDiscountRate() + p.getDiscountRate()));
-            }
+        Map<Long, TimeDiscount> accumulator =
+                actualPromotions.stream()
+                        .collect(Collectors.toMap(TimeDiscount::getIdOfBook, Function.identity()));
+
+        booksToReturn.forEach(e ->
+                Optional.ofNullable(accumulator.get(e.getIdOfBook()))
+                        .ifPresent(p -> e.setDiscountRate(e.getDiscountRate() + p.getDiscountRate()))
         );
     }
 
