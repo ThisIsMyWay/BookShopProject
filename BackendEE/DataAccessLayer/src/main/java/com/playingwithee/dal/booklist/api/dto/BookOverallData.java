@@ -9,12 +9,14 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class BookOverallData {
 
+    private Long idOfBook;
+
     private String title;
 
     private String authour;
 
     private BigDecimal basePrice;
 
-    private BigDecimal discountRate;
+    private Integer discountRate;
 
 }

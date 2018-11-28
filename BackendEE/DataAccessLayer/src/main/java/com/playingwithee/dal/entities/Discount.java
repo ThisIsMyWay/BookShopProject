@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -23,7 +24,7 @@ public class Discount {
     private String promotionName;
 
     @Column(name = "DISCOUNT_PERCENTAGE")
-    private BigDecimal percentageDiscount;
+    private Integer percentageDiscount;
 
     @ManyToMany(fetch = FetchType.LAZY,
             mappedBy = "discountList")

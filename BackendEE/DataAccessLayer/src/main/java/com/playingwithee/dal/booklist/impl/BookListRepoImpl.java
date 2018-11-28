@@ -10,7 +10,6 @@ import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -26,10 +25,12 @@ public class BookListRepoImpl implements BookListRepo {
         TypedQuery<Book> query = entityManager.createNamedQuery("Book.findAll", Book.class);
         List<Book> booksList = query.getResultList();
         return booksList.stream()
-                .map(p -> new BookOverallData(p.getTitle(),
+                .map(p -> new BookOverallData(
+                        p.getBookId(),
+                        p.getTitle(),
                         p.getAuthorList().stream().map(author -> author.getName() + " " + author.getSurname()).collect(Collectors.joining()),
                         p.getBasePrice(),
-                        p.getDiscountList().stream().map(Discount::getPercentageDiscount).reduce(BigDecimal.ZERO, BigDecimal::add)))
+                        p.getDiscountList().stream().map(Discount::getPercentageDiscount).reduce(0, Integer::sum)))
                 .collect(Collectors.toSet());
     }
 }
