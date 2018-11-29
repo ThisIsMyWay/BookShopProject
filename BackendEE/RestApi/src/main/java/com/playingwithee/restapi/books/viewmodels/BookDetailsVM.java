@@ -15,7 +15,7 @@ public class BookDetailsVM {
 
     private String title;
 
-    private String author;
+    private String authors;
 
     private String ISBN;
 
@@ -24,6 +24,8 @@ public class BookDetailsVM {
     private Date dateOfPublishing;
 
     private BigDecimal basePrice;
+
+    private Set<AuthorOfBookVM> authorsOfBook;
 
     private Set<DiscountVM> discounts;
 

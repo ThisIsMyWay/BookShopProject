@@ -2,13 +2,14 @@ package com.playingwithee.dal.book.impl;
 
 
 import com.playingwithee.dal.book.api.BookRepo;
+import com.playingwithee.dal.book.api.dto.AuthorOfBook;
 import com.playingwithee.dal.book.api.dto.BookDetailsData;
 import com.playingwithee.dal.book.api.dto.BookOverallData;
 import com.playingwithee.dal.book.api.dto.DiscountDetatilsData;
 import com.playingwithee.dal.entities.Book;
 import com.playingwithee.dal.entities.Discount;
 
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -17,7 +18,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Stateful
+@Stateless
 public class BookRepoImpl implements BookRepo {
 
     @PersistenceContext(unitName = "bookShopDB")
@@ -43,11 +44,11 @@ public class BookRepoImpl implements BookRepo {
         return Optional.ofNullable(reference)
                 .map(p -> new BookDetailsData(p.getBookId(),
                         p.getTitle(),
-                        p.getAuthorList().stream().map(author -> author.getName() + " " + author.getSurname()).collect(Collectors.joining(", ")),
                         p.getIsbn(),
                         p.getDescription(),
                         p.getPublishingDate(),
                         p.getBasePrice(),
+                        p.getAuthorList().stream().map(author -> new AuthorOfBook(author.getAuthorId(),author.getName() + " " + author.getSurname())).collect(Collectors.toSet()),
                         p.getDiscountList().stream().map(discount -> new DiscountDetatilsData(discount.getDiscountId(),
                                 discount.getName(),
                                 discount.getRate())).collect(Collectors.toSet())));

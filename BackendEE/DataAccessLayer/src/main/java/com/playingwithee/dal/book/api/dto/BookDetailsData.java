@@ -15,8 +15,6 @@ public class BookDetailsData {
 
     private String title;
 
-    private String author;
-
     private String ISBN;
 
     private String description;
@@ -24,6 +22,8 @@ public class BookDetailsData {
     private Date dateOfPublishing;
 
     private BigDecimal basePrice;
+
+    private Set<AuthorOfBook> authorsOfBook;
 
     private Set<DiscountDetatilsData> discounts;
 }

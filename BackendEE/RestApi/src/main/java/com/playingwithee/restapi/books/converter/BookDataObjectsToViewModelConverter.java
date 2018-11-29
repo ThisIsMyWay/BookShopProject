@@ -1,7 +1,9 @@
 package com.playingwithee.restapi.books.converter;
 
+import com.playingwithee.dal.book.api.dto.AuthorOfBook;
 import com.playingwithee.dal.book.api.dto.BookDetailsData;
 import com.playingwithee.dal.book.api.dto.BookOverallData;
+import com.playingwithee.restapi.books.viewmodels.AuthorOfBookVM;
 import com.playingwithee.restapi.books.viewmodels.BookDetailsVM;
 import com.playingwithee.restapi.books.viewmodels.BookListItemVM;
 import com.playingwithee.restapi.books.viewmodels.DiscountVM;
@@ -21,11 +23,12 @@ public class BookDataObjectsToViewModelConverter {
     public static Optional<BookDetailsVM> convert(Optional<BookDetailsData> bookDetails) {
        return bookDetails.map(b -> new BookDetailsVM(b.getIdOfBook(),
                 b.getTitle(),
-                b.getAuthor(),
+                b.getAuthorsOfBook().stream().map(AuthorOfBook::getName).collect(Collectors.joining(", ")),
                 b.getISBN(),
                 b.getDescription(),
                 b.getDateOfPublishing(),
                 b.getBasePrice(),
+                b.getAuthorsOfBook().stream().map(a -> new AuthorOfBookVM(a.getAuthorId(), a.getName())).collect(Collectors.toSet()),
                 b.getDiscounts().stream().map( d -> new DiscountVM(d.getName(), d.getDiscountRate())).collect(Collectors.toSet())));
 
     }
