@@ -1,7 +1,7 @@
 package com.playingwithee.service.books.timediscount;
 
-import com.playingwithee.dal.booklist.api.BookListRepo;
-import com.playingwithee.dal.booklist.api.dto.BookOverallData;
+import com.playingwithee.dal.book.api.BookRepo;
+import com.playingwithee.dal.book.api.dto.BookOverallData;
 import org.jboss.logging.Logger;
 
 import javax.ejb.*;
@@ -20,13 +20,13 @@ public class TimeDiscountBean implements Serializable {
     private Logger logger;
 
     @EJB
-    private BookListRepo bookListRepo;
+    private BookRepo bookRepo;
 
     @Lock(LockType.WRITE)
     @Schedule(hour = "*", minute = "*/5", persistent = false, info = "New promotion is drawn every single hour.")
     public void drawPromotion(){
         logger.info("new discounted books became drawn");
-        Set<BookOverallData> allBooks = bookListRepo.getAllBooks();
+        Set<BookOverallData> allBooks = bookRepo.getAllBooks();
         service.drawPromotion(allBooks);
         //TODO save discount records into table
     }

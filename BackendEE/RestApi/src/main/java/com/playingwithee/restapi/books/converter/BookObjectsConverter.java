@@ -1,6 +1,6 @@
 package com.playingwithee.restapi.books.converter;
 
-import com.playingwithee.dal.booklist.api.dto.BookOverallData;
+import com.playingwithee.dal.book.api.dto.BookOverallData;
 import com.playingwithee.restapi.books.presentationlayerobjects.BookListItem;
 
 import java.util.Set;

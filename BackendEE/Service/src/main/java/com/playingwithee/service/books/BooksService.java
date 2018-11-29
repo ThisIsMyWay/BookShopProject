@@ -1,7 +1,7 @@
 package com.playingwithee.service.books;
 
-import com.playingwithee.dal.booklist.api.BookListRepo;
-import com.playingwithee.dal.booklist.api.dto.BookOverallData;
+import com.playingwithee.dal.book.api.BookRepo;
+import com.playingwithee.dal.book.api.dto.BookOverallData;
 import com.playingwithee.service.books.timediscount.TimeDiscount;
 import com.playingwithee.service.books.timediscount.TimeDiscountBean;
 
@@ -21,10 +21,10 @@ public class BooksService implements Serializable {
     private TimeDiscountBean timeDiscountBean;
 
     @EJB
-    private BookListRepo bookListRepo;
+    private BookRepo bookRepo;
 
     public Set<BookOverallData> getListOfBooks(){
-        Set<BookOverallData> booksToReturn = bookListRepo.getAllBooks();
+        Set<BookOverallData> booksToReturn = bookRepo.getAllBooks();
 
         updateBooksWithTimeDiscount(booksToReturn);
 

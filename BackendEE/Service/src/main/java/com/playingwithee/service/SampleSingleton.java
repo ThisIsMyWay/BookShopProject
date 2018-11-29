@@ -1,7 +1,7 @@
 package com.playingwithee.service;
 
-import com.playingwithee.dal.booklist.api.BookListRepo;
-import com.playingwithee.dal.booklist.api.dto.BookOverallData;
+import com.playingwithee.dal.book.api.BookRepo;
+import com.playingwithee.dal.book.api.dto.BookOverallData;
 import org.jboss.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -16,7 +16,7 @@ import java.util.Set;
 public class SampleSingleton {
 
     @EJB
-    private BookListRepo repo;
+    private BookRepo repo;
 
     @Inject
     private Logger logger;

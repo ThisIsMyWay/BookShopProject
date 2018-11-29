@@ -18,13 +18,13 @@ public class Discount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long categoryId;
+    private Long discountId;
 
-    @Column(name = "NAME_OF_PROMOTION")
-    private String promotionName;
+    @Column(name = "NAME")
+    private String name;
 
-    @Column(name = "DISCOUNT_PERCENTAGE")
-    private Integer percentageDiscount;
+    @Column(name = "RATE")
+    private Integer rate;
 
     @ManyToMany(fetch = FetchType.LAZY,
             mappedBy = "discountList")

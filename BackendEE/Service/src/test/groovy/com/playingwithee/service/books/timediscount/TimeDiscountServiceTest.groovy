@@ -1,6 +1,6 @@
 package com.playingwithee.service.books.timediscount
 
-import com.playingwithee.dal.booklist.api.dto.BookOverallData
+import com.playingwithee.dal.book.api.dto.BookOverallData
 import spock.lang.Specification
 import spock.lang.Unroll
 

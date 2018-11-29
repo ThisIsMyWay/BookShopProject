@@ -1,6 +1,6 @@
 package com.playingwithee.service.books.timediscount;
 
-import com.playingwithee.dal.booklist.api.dto.BookOverallData;
+import com.playingwithee.dal.book.api.dto.BookOverallData;
 
 import java.util.Collections;
 import java.util.HashSet;

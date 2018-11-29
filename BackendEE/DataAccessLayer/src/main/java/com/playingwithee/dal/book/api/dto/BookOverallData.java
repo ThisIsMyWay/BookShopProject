@@ -1,4 +1,4 @@
-package com.playingwithee.dal.booklist.api.dto;
+package com.playingwithee.dal.book.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

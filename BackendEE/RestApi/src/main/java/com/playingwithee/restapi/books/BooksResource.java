@@ -1,7 +1,7 @@
 package com.playingwithee.restapi.books;
 
 
-import com.playingwithee.dal.booklist.api.dto.BookOverallData;
+import com.playingwithee.dal.book.api.dto.BookOverallData;
 import com.playingwithee.restapi.books.converter.BookObjectsConverter;
 import com.playingwithee.restapi.books.presentationlayerobjects.BookListItem;
 import com.playingwithee.service.books.BooksService;
