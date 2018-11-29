@@ -1,13 +1,13 @@
-package com.playingwithee.restapi.books.presentationlayerobjects;
+package com.playingwithee.restapi.books.viewmodels;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 
-@Data
 @AllArgsConstructor
-public class BookListItem {
+@Getter
+public class BookListItemVM  {
 
     private Long idOfBook;
 
@@ -18,4 +18,5 @@ public class BookListItem {
     private BigDecimal basePrice;
 
     private Integer discountRate;
+
 }

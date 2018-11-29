@@ -39,7 +39,7 @@ public class BookRepoImpl implements BookRepo {
 
     @Override
     public Optional<BookDetailsData> getBookDetailsById(Long id) {
-        final Book reference = entityManager.getReference(Book.class, id);
+        final Book reference = entityManager.find(Book.class, id);
         return Optional.ofNullable(reference)
                 .map(p -> new BookDetailsData(p.getBookId(),
                         p.getTitle(),
