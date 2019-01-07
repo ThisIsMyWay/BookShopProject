@@ -8,6 +8,8 @@ import com.playingwithee.dal.entities.Discount;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Collections;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -21,7 +23,7 @@ public class DiscountRepoImpl implements DiscountRepo {
     public void addDiscount(DiscountData discountData) {
 
         Set<Book> listOfLinkedBooks = discountData.getIdsOfBooksCoveredByThisDiscount().stream()
-                .map(a -> entityManager.getReference(Book.class, a)).collect(Collectors.toSet());
+                .map(a -> entityManager.find(Book.class, a)).collect(Collectors.toSet());
 
         Discount discount = new Discount(discountData.getDiscountId(),
                 discountData.getName(),
@@ -31,7 +33,8 @@ public class DiscountRepoImpl implements DiscountRepo {
                 listOfLinkedBooks);
 
         listOfLinkedBooks.forEach(a -> {
-            a.setDiscountList(Set.of(discount));
+            Optional.ofNullable(a.getDiscountList()).orElseGet(Collections::emptySet)
+                    .add(discount);
         });
         entityManager.merge(discount);
 

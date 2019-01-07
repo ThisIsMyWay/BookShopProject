@@ -1,7 +1,6 @@
 package com.playingwithee.dal.entities;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
 
@@ -44,7 +43,7 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "author_id")})
     private Set<Author> authorList;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "BOOK_TO_DISCOUNT",
             joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "discount_id")})

@@ -35,7 +35,7 @@ public class Discount {
     private Timestamp endingDate;
 
     @ManyToMany(fetch = FetchType.LAZY,
-            mappedBy = "discountList", cascade = CascadeType.PERSIST)
+            mappedBy = "discountList")
     private Set<Book> bookList;
 
 }
