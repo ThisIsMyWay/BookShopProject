@@ -2,6 +2,7 @@ package com.playingwithee.service.books.timediscount;
 
 import com.playingwithee.dal.book.api.dto.BookOverallData;
 
+import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +15,7 @@ class TimeDiscountService {
 
     public void drawPromotion(Set<BookOverallData> listOfBooks) {
         int discountLevel = drawDiscountLevel();
+        Timestamp drawingTime = new Timestamp(System.currentTimeMillis());
 
         listOfActualPromotions = listOfBooks.stream()
                 .collect(Collectors.collectingAndThen(Collectors.toList(), collectedList -> {
@@ -21,7 +23,7 @@ class TimeDiscountService {
                         return collectedList.stream();
                         }))
                 .limit(AMOUNT_OF_DISCOUNTED_BOOKS)
-                .map(item -> new TimeDiscount(item.getIdOfBook(), discountLevel))
+                .map(item -> new TimeDiscount(item.getIdOfBook(), discountLevel, drawingTime))
                 .collect(Collectors.toSet());
     }
 

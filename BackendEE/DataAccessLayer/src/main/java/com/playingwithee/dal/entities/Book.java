@@ -1,7 +1,7 @@
 package com.playingwithee.dal.entities;
 
-import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
 
@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "BOOK")
-@NamedQuery(name="Book.findAll", query = "SELECT b from Book as b")
+@NamedQuery(name="Book.findAll", query = "SELECT b from Book as b LEFT JOIN b.discountList as d where d.endingDate is null")
 @Getter
 @Setter
 public class Book {

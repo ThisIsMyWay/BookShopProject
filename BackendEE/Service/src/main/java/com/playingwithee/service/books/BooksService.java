@@ -37,7 +37,7 @@ public class BooksService implements Serializable {
         final Optional<BookDetailsData> retrievedBook = bookRepo.getBookDetailsById(idOfBook);
 
         retrievedBook.ifPresent(p -> Optional.ofNullable(getAccumulatedPromotions().get(p.getIdOfBook()))
-                .ifPresent(e -> p.getDiscounts().add(new DiscountDetatilsData(null, "Happy Hour Discount", e.getDiscountRate()))));
+                .ifPresent(e -> p.getDiscounts().add(new DiscountDetatilsData(null, "Happy Hour DiscountData", e.getDiscountRate()))));
 
         return retrievedBook;
     }
