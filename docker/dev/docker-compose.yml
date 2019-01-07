@@ -2,7 +2,7 @@ version: '3'
 
 services:
   wildfly:
-    image: wojleg256/wildfly-for-bookshop
+    image: wojlegaw256/wildfly-for-bookshop
     build: 
       context: .
       dockerfile: Dockerfile-wildfly
