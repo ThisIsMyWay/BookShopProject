@@ -24,6 +24,7 @@
         <commons-io.version>2.5</commons-io.version>
         <jboss-logging.version>3.3.1.Final</jboss-logging.version>
         <spock-core.version>1.2-groovy-2.4</spock-core.version>
+        <jboss-annotations-api_1.2_spec.version>1.0.0.Final</jboss-annotations-api_1.2_spec.version>
     </properties>
 
     <modules>
@@ -75,6 +76,11 @@
                 <groupId>org.spockframework</groupId>
                 <artifactId>spock-core</artifactId>
                 <version>${spock-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.spec.javax.annotation</groupId>
+                <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+                <version>${jboss-annotations-api_1.2_spec.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

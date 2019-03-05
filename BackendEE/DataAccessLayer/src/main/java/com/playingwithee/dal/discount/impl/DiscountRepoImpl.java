@@ -23,7 +23,7 @@ public class DiscountRepoImpl implements DiscountRepo {
     public void addDiscount(DiscountData discountData) {
 
         Set<Book> listOfLinkedBooks = discountData.getIdsOfBooksCoveredByThisDiscount().stream()
-                .map(a -> entityManager.find(Book.class, a)).collect(Collectors.toSet());
+                .map(idOfBook -> entityManager.find(Book.class, idOfBook)).collect(Collectors.toSet());
 
         Discount discount = new Discount(discountData.getDiscountId(),
                 discountData.getName(),

@@ -43,7 +43,10 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "author_id")})
     private Set<Author> authorList;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {
+            CascadeType.MERGE,
+            CascadeType.PERSIST
+    })
     @JoinTable(name = "BOOK_TO_DISCOUNT",
             joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "discount_id")})
