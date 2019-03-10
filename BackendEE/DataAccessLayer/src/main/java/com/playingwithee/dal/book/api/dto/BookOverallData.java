@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -13,7 +14,9 @@ public class BookOverallData {
 
     private String title;
 
-    private String authour;
+    private String authors;
+
+    private Set<AuthorOfBook> authorsOfBook;
 
     private BigDecimal basePrice;
 

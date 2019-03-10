@@ -1,13 +1,16 @@
 package com.playingwithee.restapi.books.viewmodels;
 
 import com.playingwithee.restapi.hateoas.HateoasSupportingVM;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class BookListItemVM extends HateoasSupportingVM {
 
     private Long idOfBook;
@@ -16,15 +19,10 @@ public class BookListItemVM extends HateoasSupportingVM {
 
     private String author;
 
+    private Set<AuthorOfBookVM> authorsOfBook;
+
     private BigDecimal basePrice;
 
     private Integer discountRate;
 
-    public BookListItemVM(Long idOfBook, String title, String author, BigDecimal basePrice, Integer discountRate) {
-        this.idOfBook = idOfBook;
-        this.title = title;
-        this.author = author;
-        this.basePrice = basePrice;
-        this.discountRate = discountRate;
-    }
 }

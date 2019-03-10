@@ -6,7 +6,6 @@ import com.playingwithee.dal.book.api.dto.BookOverallData;
 import com.playingwithee.restapi.authors.AuthorsResource;
 import com.playingwithee.restapi.books.converter.BookDataObjectsToViewModelConverter;
 import com.playingwithee.restapi.books.viewmodels.BookDetailsVM;
-import com.playingwithee.restapi.books.viewmodels.BookListItemVM;
 import com.playingwithee.restapi.books.viewmodels.BookListVM;
 import com.playingwithee.restapi.hateoas.HateoasLinkGenerator;
 import com.playingwithee.service.books.BooksService;
@@ -15,8 +14,9 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
-import javax.ws.rs.core.*;
-import java.io.Serializable;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.util.Optional;
 import java.util.Set;
 
@@ -24,7 +24,7 @@ import java.util.Set;
 @Consumes({"application/json"})
 @Produces({"application/json"})
 @Path("/books")
-public class BooksResource implements Serializable {
+public class BooksResource {
 
 
     @EJB
@@ -45,15 +45,15 @@ public class BooksResource implements Serializable {
     public Response getBookList(){
 
         final Set<BookOverallData> listOfBooks = booksService.getListOfBooks();
-        final Set<BookListItemVM> itemsForResponse = BookDataObjectsToViewModelConverter.convert(listOfBooks);
+        final BookListVM bookListVM = BookDataObjectsToViewModelConverter.convert(listOfBooks);
 
-        itemsForResponse.forEach( a -> {
-            a.getLinks().add(hateoasLinkGenerator.generate("book_details", BooksResource.class, "getBookDetails", a.getIdOfBook()));
-        });
-
-        BookListVM bookListVM = new BookListVM();
-        bookListVM.getBookList().addAll(itemsForResponse);
+        // TODO hide adding link to other layer?
         bookListVM.getLinks().add(hateoasLinkGenerator.generate("self", BooksResource.class, "getBookList"));
+        bookListVM.getBookList().forEach( a -> {
+                    a.getLinks().add(hateoasLinkGenerator.generate("book_details", BooksResource.class, "getBookDetails", a.getIdOfBook()));
+                    a.getAuthorsOfBook().forEach(author -> author.getLinks().add(hateoasLinkGenerator.generate("author_details", AuthorsResource.class, "getAuthorDetails", author.getAuthorId())));
+                }
+        );
 
         return Response.ok(bookListVM).build();
     }

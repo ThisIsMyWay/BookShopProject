@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 public class AuthorDataObjectsToViewModelConverter {
 
+    private AuthorDataObjectsToViewModelConverter(){}
+
     public static Optional<AuthorVM> convert(Optional<AuthorData> authorData){
         return authorData.map( a -> new AuthorVM(a.getAuthorId(),
                 a.getName(),

@@ -29,10 +29,10 @@ class TimeDiscountServiceTest extends Specification {
     }
 
     private Set<BookOverallData> getSampleListOfBooks() {
-        return Arrays.asList(new BookOverallData(1, "1984", "George Orwell", 25.4, 0),
-                new BookOverallData(2, "Sentimental Education", "Gustave Flaubert", 27.4, 0),
-                new BookOverallData(3, "Anna Karenina", "Leo Tolstoy", 31.8, 0),
-                new BookOverallData(4, "The Divine Comedy", "Dante Alighieri", 9.4, 0),
-                new BookOverallData(5, "Faust", "Johann Wolfgang von Goethe", 11.4, 0))
+        return Arrays.asList(new BookOverallData(1, "1984", "George Orwell", null,25.4, 0),
+                new BookOverallData(2, "Sentimental Education", "Gustave Flaubert", null,27.4, 0),
+                new BookOverallData(3, "Anna Karenina", "Leo Tolstoy", null,31.8, 0),
+                new BookOverallData(4, "The Divine Comedy", "Dante Alighieri", null,9.4, 0),
+                new BookOverallData(5, "Faust", "Johann Wolfgang von Goethe", null,11.4, 0))
     }
 }

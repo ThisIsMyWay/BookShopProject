@@ -33,6 +33,7 @@ public class BookRepoImpl implements BookRepo {
                         p.getBookId(),
                         p.getTitle(),
                         p.getAuthorList().stream().map(author -> author.getName() + " " + author.getSurname()).collect(Collectors.joining(", ")),
+                        p.getAuthorList().stream().map(author -> new AuthorOfBook(author.getAuthorId(),author.getName() + " " + author.getSurname())).collect(Collectors.toSet()),
                         p.getBasePrice(),
                         p.getDiscountList().stream().map(Discount::getRate).reduce(0, Integer::sum)))
                 .collect(Collectors.toSet());
