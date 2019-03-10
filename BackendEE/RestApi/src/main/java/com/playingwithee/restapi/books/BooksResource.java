@@ -42,7 +42,6 @@ public class BooksResource {
     @Path("")
     @GET
     public Response getBookList(){
-
         final Set<BookOverallData> listOfBooks = booksService.getListOfBooks();
         final BookListVM bookListVM = BookDataObjectsToViewModelConverter.convert(listOfBooks);
         hateoasAdder.setLinks(bookListVM);

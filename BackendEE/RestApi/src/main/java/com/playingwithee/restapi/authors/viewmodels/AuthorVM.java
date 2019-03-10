@@ -1,5 +1,6 @@
 package com.playingwithee.restapi.authors.viewmodels;
 
+import com.playingwithee.restapi.hateoas.HateoasSupportingVM;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -8,7 +9,7 @@ import java.util.Set;
 
 @AllArgsConstructor
 @Getter
-public class AuthorVM {
+public class AuthorVM extends HateoasSupportingVM {
 
     private Long authorId;
 
