@@ -3,11 +3,10 @@ package com.playingwithee.restapi.books;
 
 import com.playingwithee.dal.book.api.dto.BookDetailsData;
 import com.playingwithee.dal.book.api.dto.BookOverallData;
-import com.playingwithee.restapi.authors.AuthorsResource;
 import com.playingwithee.restapi.books.converter.BookDataObjectsToViewModelConverter;
+import com.playingwithee.restapi.books.hateoas.BookResourceHateoasAdder;
 import com.playingwithee.restapi.books.viewmodels.BookDetailsVM;
 import com.playingwithee.restapi.books.viewmodels.BookListVM;
-import com.playingwithee.restapi.hateoas.HateoasLinkGenerator;
 import com.playingwithee.service.books.BooksService;
 
 import javax.annotation.PostConstruct;
@@ -33,11 +32,11 @@ public class BooksResource {
     @Context
     private UriInfo uriInfo;
 
-    private HateoasLinkGenerator hateoasLinkGenerator;
+    private BookResourceHateoasAdder hateoasAdder;
 
     @PostConstruct
     public void init(){
-        hateoasLinkGenerator = new HateoasLinkGenerator(uriInfo);
+        hateoasAdder = new BookResourceHateoasAdder(uriInfo);
     }
 
     @Path("")
@@ -46,15 +45,7 @@ public class BooksResource {
 
         final Set<BookOverallData> listOfBooks = booksService.getListOfBooks();
         final BookListVM bookListVM = BookDataObjectsToViewModelConverter.convert(listOfBooks);
-
-        // TODO hide adding link to other layer?
-        bookListVM.getLinks().add(hateoasLinkGenerator.generate("self", BooksResource.class, "getBookList"));
-        bookListVM.getBookList().forEach( a -> {
-                    a.getLinks().add(hateoasLinkGenerator.generate("book_details", BooksResource.class, "getBookDetails", a.getIdOfBook()));
-                    a.getAuthorsOfBook().forEach(author -> author.getLinks().add(hateoasLinkGenerator.generate("author_details", AuthorsResource.class, "getAuthorDetails", author.getAuthorId())));
-                }
-        );
-
+        hateoasAdder.setLinks(bookListVM);
         return Response.ok(bookListVM).build();
     }
 
@@ -66,12 +57,7 @@ public class BooksResource {
         final Optional<BookDetailsVM> itemForResponse = BookDataObjectsToViewModelConverter.convert(bookDetails);
         if (itemForResponse.isPresent()){
             final BookDetailsVM bookDetailsVM = itemForResponse.get();
-            bookDetailsVM.getLinks().add(hateoasLinkGenerator.generate("self", BooksResource.class,"getBookDetails", id));
-            bookDetailsVM.getLinks().add(hateoasLinkGenerator.generate("book_list", BooksResource.class, "getBookList"));
-            bookDetailsVM.getAuthorsOfBook().forEach( a -> {
-                a.getLinks().add(hateoasLinkGenerator.generate("author_details", AuthorsResource.class,
-                        "getAuthorDetails", a.getAuthorId()));
-            });
+            hateoasAdder.setLinks(bookDetailsVM);
             return Response.ok(bookDetailsVM).build();
         }
         return Response.noContent().build();
