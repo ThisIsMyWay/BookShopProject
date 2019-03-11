@@ -1,5 +1,7 @@
 package com.playingwithee.restapi.books.viewmodels;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.playingwithee.restapi.hateoas.HateoasSupportingVM;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +24,8 @@ public class BookDetailsVM extends HateoasSupportingVM {
 
     private String description;
 
+    @JsonSerialize(as = Date.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateOfPublishing;
 
     private BigDecimal basePrice;

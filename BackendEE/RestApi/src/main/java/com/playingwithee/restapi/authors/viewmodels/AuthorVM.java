@@ -1,5 +1,7 @@
 package com.playingwithee.restapi.authors.viewmodels;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.playingwithee.restapi.hateoas.HateoasSupportingVM;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,8 +19,12 @@ public class AuthorVM extends HateoasSupportingVM {
 
     private String surname;
 
+    @JsonSerialize(as = Date.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date birthDate;
 
+    @JsonSerialize(as = Date.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date deathDate;
 
     private Set<BookOfAuthorVM> booksOfAuthor;
