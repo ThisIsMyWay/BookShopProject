@@ -21,12 +21,12 @@ public class AuthorRepoImpl implements AuthorRepo {
     public Optional<AuthorData> getAuthor(Long id) {
         final Author authorEntity = entityManager.find(Author.class, id);
         return Optional.ofNullable(authorEntity)
-                .map(p -> new AuthorData(p.getAuthorId(),
+                .map(p -> new AuthorData(p.getId(),
                         p.getName(),
                         p.getSurname(),
                         p.getBirthDate(),
                         p.getDeathDate(),
-                        p.getBookList().stream().map(b -> new BookOfAuthor(b.getBookId(),
+                        p.getBookList().stream().map(b -> new BookOfAuthor(b.getId(),
                                 b.getTitle())).collect(Collectors.toSet())));
     }
 }

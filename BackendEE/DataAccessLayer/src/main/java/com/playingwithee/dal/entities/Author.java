@@ -1,6 +1,5 @@
 package com.playingwithee.dal.entities;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,12 +11,7 @@ import java.util.Set;
 @Table(name = "AUTHOR")
 @Getter
 @Setter
-public class Author {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long authorId;
+public class Author extends BaseEntity {
 
     @Column(name = "NAME")
     private String name;
@@ -38,5 +32,7 @@ public class Author {
     @ManyToMany(fetch = FetchType.LAZY,
             mappedBy = "authorList")
     private Set<Book> bookList;
+
+
 
 }

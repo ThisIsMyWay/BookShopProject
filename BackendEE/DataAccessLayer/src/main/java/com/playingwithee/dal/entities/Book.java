@@ -14,12 +14,7 @@ import java.util.Set;
 @NamedQuery(name="Book.findAll", query = "SELECT b from Book as b LEFT JOIN b.discountList as d where d.endingDate is null")
 @Getter
 @Setter
-public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long bookId;
+public class Book extends BaseEntity {
 
     @Column(name = "TITLE")
     private String title;

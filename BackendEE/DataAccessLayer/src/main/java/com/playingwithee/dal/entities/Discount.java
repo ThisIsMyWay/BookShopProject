@@ -1,8 +1,6 @@
 package com.playingwithee.dal.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -13,14 +11,7 @@ import java.util.Set;
 @Table(name = "DISCOUNT")
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Discount {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long discountId;
+public class Discount extends BaseEntity {
 
     @Column(name = "NAME")
     private String name;
@@ -38,4 +29,15 @@ public class Discount {
             mappedBy = "discountList")
     private Set<Book> bookList;
 
+    public Discount() {
+    }
+
+    public Discount(Long id, String name, Integer rate, Timestamp startingDate, Timestamp endingDate, Set<Book> bookList) {
+        this.id = id;
+        this.name = name;
+        this.rate = rate;
+        this.startingDate = startingDate;
+        this.endingDate = endingDate;
+        this.bookList = bookList;
+    }
 }

@@ -30,10 +30,10 @@ public class BookRepoImpl implements BookRepo {
         List<Book> booksList = query.getResultList();
         return booksList.stream()
                 .map(p -> new BookOverallData(
-                        p.getBookId(),
+                        p.getId(),
                         p.getTitle(),
                         p.getAuthorList().stream().map(author -> author.getName() + " " + author.getSurname()).collect(Collectors.joining(", ")),
-                        p.getAuthorList().stream().map(author -> new AuthorOfBook(author.getAuthorId(),author.getName() + " " + author.getSurname())).collect(Collectors.toSet()),
+                        p.getAuthorList().stream().map(author -> new AuthorOfBook(author.getId(),author.getName() + " " + author.getSurname())).collect(Collectors.toSet()),
                         p.getBasePrice(),
                         p.getDiscountList().stream().map(Discount::getRate).reduce(0, Integer::sum)))
                 .collect(Collectors.toSet());
@@ -43,14 +43,14 @@ public class BookRepoImpl implements BookRepo {
     public Optional<BookDetailsData> getBookDetailsById(Long id) {
         final Book reference = entityManager.find(Book.class, id);
         return Optional.ofNullable(reference)
-                .map(p -> new BookDetailsData(p.getBookId(),
+                .map(p -> new BookDetailsData(p.getId(),
                         p.getTitle(),
                         p.getIsbn(),
                         p.getDescription(),
                         p.getPublishingDate(),
                         p.getBasePrice(),
-                        p.getAuthorList().stream().map(author -> new AuthorOfBook(author.getAuthorId(),author.getName() + " " + author.getSurname())).collect(Collectors.toSet()),
-                        p.getDiscountList().stream().map(discount -> new DiscountDetatilsData(discount.getDiscountId(),
+                        p.getAuthorList().stream().map(author -> new AuthorOfBook(author.getId(),author.getName() + " " + author.getSurname())).collect(Collectors.toSet()),
+                        p.getDiscountList().stream().map(discount -> new DiscountDetatilsData(discount.getId(),
                                 discount.getName(),
                                 discount.getRate())).collect(Collectors.toSet())));
     }
