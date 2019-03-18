@@ -1,7 +1,6 @@
 package com.playingwithee.dal.entities;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -9,7 +8,6 @@ import java.util.UUID;
 
 @MappedSuperclass
 @Getter
-@Setter
 abstract class BaseEntity {
 
     @Id
@@ -17,6 +15,7 @@ abstract class BaseEntity {
     @Column(name = "ID")
     protected Long id;
 
+    @Column(name = "UUID")
     protected String uuid = UUID.randomUUID().toString();
 
     @Override
