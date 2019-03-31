@@ -9,7 +9,7 @@ import java.util.Set;
 
 public interface BookRepo extends Serializable {
 
-    public Set<BookOverallData> getAllBooks();
+    public Set<BookOverallData> getAllWithDiscountsAndAuthors();
     
     public Optional<BookDetailsData> getBookDetailsById(Long id);
 

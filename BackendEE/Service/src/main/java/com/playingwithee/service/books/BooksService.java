@@ -26,7 +26,7 @@ public class BooksService implements Serializable {
     private BookRepo bookRepo;
 
     public Set<BookOverallData> getListOfBooks() {
-        Set<BookOverallData> booksToReturn = bookRepo.getAllBooks();
+        Set<BookOverallData> booksToReturn = bookRepo.getAllWithDiscountsAndAuthors();
 
         updateBooksWithTimeDiscount(booksToReturn);
 

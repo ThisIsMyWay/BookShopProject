@@ -36,7 +36,5 @@ public class DiscountRepoImpl implements DiscountRepo {
             Optional.ofNullable(a.getDiscountList()).orElseGet(Collections::emptySet)
                     .add(discount);
         });
-        entityManager.merge(discount);
-
     }
 }

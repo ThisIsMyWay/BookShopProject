@@ -11,7 +11,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "BOOK")
-@NamedQuery(name="Book.findAll", query = "SELECT b from Book as b LEFT JOIN b.discountList as d where d.endingDate is null")
+@NamedQueries({
+        @NamedQuery(name= "Book.getAllWithDiscountsAndAuthors", query = "SELECT DISTINCT b FROM Book as b LEFT JOIN FETCH b.discountList LEFT JOIN FETCH b.authorList"),
+        @NamedQuery(name= "Book.getOneBookWithDiscountsAndAuthors", query = "SELECT DISTINCT b FROM Book as b LEFT JOIN FETCH b.discountList LEFT JOIN FETCH b.authorList where b.id = :id"),})
+
 @Getter
 @Setter
 public class Book extends BaseEntity {
@@ -47,7 +50,7 @@ public class Book extends BaseEntity {
             inverseJoinColumns = {@JoinColumn(name = "discount_id")})
     private Set<Discount> discountList;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "BOOK_TO_CATEGORY",
             joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "category_id")})

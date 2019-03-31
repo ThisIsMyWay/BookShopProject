@@ -12,6 +12,7 @@ import com.playingwithee.dal.entities.Discount;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
@@ -25,8 +26,8 @@ public class BookRepoImpl implements BookRepo {
     private transient EntityManager entityManager;
 
     @Override
-    public Set<BookOverallData> getAllBooks() {
-        TypedQuery<Book> query = entityManager.createNamedQuery("Book.findAll", Book.class);
+    public Set<BookOverallData> getAllWithDiscountsAndAuthors() {
+        TypedQuery<Book> query = entityManager.createNamedQuery("Book.getAllWithDiscountsAndAuthors", Book.class);
         List<Book> booksList = query.getResultList();
         return booksList.stream()
                 .map(p -> new BookOverallData(
@@ -41,8 +42,11 @@ public class BookRepoImpl implements BookRepo {
 
     @Override
     public Optional<BookDetailsData> getBookDetailsById(Long id) {
-        final Book reference = entityManager.find(Book.class, id);
-        return Optional.ofNullable(reference)
+
+        final Query queryforParticularBook = entityManager.createNamedQuery("Book.getOneBookWithDiscountsAndAuthors");
+        queryforParticularBook.setParameter("id", id);
+        final List<Book> bookResultList = queryforParticularBook.getResultList();
+        return bookResultList.stream().findFirst()
                 .map(p -> new BookDetailsData(p.getId(),
                         p.getTitle(),
                         p.getIsbn(),

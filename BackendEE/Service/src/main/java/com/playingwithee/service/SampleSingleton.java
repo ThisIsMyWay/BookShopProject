@@ -31,7 +31,7 @@ public class SampleSingleton {
     public void postConstruct(){
         logger.info("sngleton postconstruct");
 
-        Set<BookOverallData> allBooks = repo.getAllBooks();
+        Set<BookOverallData> allBooks = repo.getAllWithDiscountsAndAuthors();
         logger.info("sngleton s");
 
 

@@ -9,6 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "AUTHOR")
+@NamedQuery(query = "SELECT DISTINCT a FROM Author a INNER JOIN FETCH a.bookList b where a.id = :id", name = "Author.getWithBooks")
 @Getter
 @Setter
 public class Author extends BaseEntity {

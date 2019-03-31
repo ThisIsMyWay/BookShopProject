@@ -35,7 +35,7 @@ public class TimeDiscountBean implements Serializable {
     public void drawPromotion(){
         logger.info("new discounted books became drawn");
         saveDiscounts();
-        Set<BookOverallData> allBooks = bookRepo.getAllBooks();
+        Set<BookOverallData> allBooks = bookRepo.getAllWithDiscountsAndAuthors();
         service.drawPromotion(allBooks);
     }
 
