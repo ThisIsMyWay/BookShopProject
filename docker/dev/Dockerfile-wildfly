@@ -32,6 +32,8 @@ RUN wget --no-cookies --no-check-certificate https://jdbc.postgresql.org/downloa
 
 # make remote debug option works with java 10  
 RUN sed -i -- 's/dt_socket,address=/dt_socket,address=*:/g' standalone*
+# added -Dfile.encoding=UTF-8 to fix problem with encoding hibernate import file
+RUN sed -i -- 's/JAVA_OPTS="-Xms64m -Xmx512m/JAVA_OPTS="-Xms64m -Xmx512m -Dfile.encoding=UTF-8/g' standalone*
 
 # EXPOSE PORTS 
 EXPOSE 9990

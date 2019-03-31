@@ -18,8 +18,7 @@ INSERT INTO category (uuid, name) VALUES ('ccd84578-f044-47fa-afa0-9d91a616fa0d'
 INSERT INTO category (uuid, name) VALUES ('0e6e47a7-2eb3-4ac4-a45b-acd3c95a4b70','bildungsroman');
 
 -- 1984
-INSERT INTO BOOK (uuid,TITLE,ISBN,DESCRIPTION,PUBLISHING_DATE,BASE_PRICE) VALUES ('4ac17192-9b0c-42f2-8cbc-549e8a6b42ec','1984', '978-0451524935', 'Written in 1948, 1984 was George Orwell’s chilling prophecy about the future. And while 1984 has come and gone, his dystopian vision of a government that will do anything to control the narrative is timelier than ever...
-', '1961-1-1', 6) RETURNING id INTO bookId;
+INSERT INTO BOOK (uuid,TITLE,ISBN,DESCRIPTION,PUBLISHING_DATE,BASE_PRICE) VALUES ('4ac17192-9b0c-42f2-8cbc-549e8a6b42ec','1984', '978-0451524935', 'Written in 1948, 1984 was George Orwell’s chilling prophecy about the future. And while 1984 has come and gone, his dystopian vision of a government that will do anything to control the narrative is timelier than ever...', '1961-1-1', 6) RETURNING id INTO bookId;
 
 INSERT INTO book_to_category (book_id, category_id) VALUES (bookId, (SELECT id FROM category WHERE name = 'modern literature'));
 
@@ -64,7 +63,7 @@ INSERT INTO book_to_author (book_id, author_id) VALUES (bookId, authorId);
 
 
 -- Anna Karenina
-INSERT INTO BOOK (UUID,TITLE,ISBN,DESCRIPTION,PUBLISHING_DATE,BASE_PRICE) VALUES ('da5899e3-c214-4e65-bc4e-a38fc29248f3','Anna Karenina', '978-0143035008', 'Described by William Faulkner as the best novel ever written and by Fyodor Dostoevsky as “flawless,” Anna Karenina tells of the doomed love affair between the sensuous and rebellious Anna and the dashing officer, Count Vronsky. Tragedy unfolds as Anna rejects her passionless marriage and thereby exposes herself to the hypocrisies of society. Set against a vast and richly textured canvas of nineteenth-century Russia, the novel''s seven major characters create a dynamic imbalance, playing out the contrasts of city and country life and all the variations on love and family happiness.',
+INSERT INTO BOOK (UUID,TITLE,ISBN,DESCRIPTION,PUBLISHING_DATE,BASE_PRICE) VALUES ('da5899e3-c214-4e65-bc4e-a38fc29248f3','Anna Karenina', '978-0143035008', 'Described by William Faulkner as the best novel ever written and by Fyodor Dostoevsky as "flawless", Anna Karenina tells of the doomed love affair between the sensuous and rebellious Anna and the dashing officer, Count Vronsky. Tragedy unfolds as Anna rejects her passionless marriage and thereby exposes herself to the hypocrisies of society. Set against a vast and richly textured canvas of nineteenth-century Russia, the novel''s seven major characters create a dynamic imbalance, playing out the contrasts of city and country life and all the variations on love and family happiness.',
 '2004-05-31', 19.00) RETURNING id INTO bookId;
 
 INSERT INTO book_to_category (book_id, category_id) VALUES (bookId, (SELECT id FROM category WHERE name = 'novel'));

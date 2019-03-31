@@ -28,5 +28,5 @@ sh jboss-cli.sh --connect --command="xa-data-source add \
 										                  \"PortNumber\" => \"5432\", \
 										                  \"DatabaseName\" => \"book_shop_db\"}"
 
-echo "shutting down temp fildfly"
+echo "shutting down temp wildfly"
 sh jboss-cli.sh --connect :shutdown
