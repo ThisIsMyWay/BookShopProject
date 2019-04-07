@@ -26,6 +26,7 @@
         <spock-core.version>1.2-groovy-2.4</spock-core.version>
         <jboss-annotations-api_1.2_spec.version>1.0.0.Final</jboss-annotations-api_1.2_spec.version>
         <resteasy-jackson2-provider.version>3.5.1.Final</resteasy-jackson2-provider.version>
+        <integration-test.skip>true</integration-test.skip>
     </properties>
 
     <modules>
@@ -35,6 +36,15 @@
         <module>BookShopEar</module>
         <module>Commons</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>integration</id>
+            <properties>
+                <integration-test.skip>false</integration-test.skip>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencyManagement>
         <dependencies>
@@ -88,6 +98,11 @@
                 <artifactId>resteasy-jackson2-provider</artifactId>
                 <version>${resteasy-jackson2-provider.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.rest-assured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>3.3.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -132,7 +147,25 @@
             </plugins>
         </pluginManagement>
 
+
         <plugins>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <skipTests>${integration-test.skip}</skipTests>
+                            <includes>
+                                <include>**/*IT.class</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
