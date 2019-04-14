@@ -26,7 +26,7 @@ waitTillContainersAreReady() {
     until docker inspect -f '{{.State.Health.Status}}' dev_wildfly_1 2>/dev/null | grep -q 'healthy';
     do 
         echo "waiting till all containers are runing..."
-        sleep 5s
+        sleep 1s
     done
 }
 
