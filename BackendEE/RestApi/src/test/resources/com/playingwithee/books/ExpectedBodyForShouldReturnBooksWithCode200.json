@@ -1,0 +1,557 @@
+{
+    "links": [
+        {
+            "href": "http://192.168.99.100:8080/bookshop/rest/books",
+            "rel": "self",
+            "method": "GET"
+        }
+    ],
+    "bookList": [
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/1",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 1,
+            "title": "1984",
+            "author": "George Orwell",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/1",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 1,
+                    "name": "George Orwell"
+                }
+            ],
+            "basePrice": 6.00,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/2",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 2,
+            "title": "Sentimental Education",
+            "author": "Gustave Flaubert",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/2",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 2,
+                    "name": "Gustave Flaubert"
+                }
+            ],
+            "basePrice": 9.85,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/3",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 3,
+            "title": "Absalom, Absalom!",
+            "author": "William Faulkner",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/3",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 3,
+                    "name": "William Faulkner"
+                }
+            ],
+            "basePrice": 11.67,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/4",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 4,
+            "title": "The Aeneid",
+            "author": "Gustave Flaubert",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/4",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 4,
+                    "name": "Gustave Flaubert"
+                }
+            ],
+            "basePrice": 6.99,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/5",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 5,
+            "title": "Anna Karenina",
+            "author": "Leo Tolstoy",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/5",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 5,
+                    "name": "Leo Tolstoy"
+                }
+            ],
+            "basePrice": 19.00,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/6",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 6,
+            "title": "Beloved",
+            "author": "Toni Morrison",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/6",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 6,
+                    "name": "Toni Morrison"
+                }
+            ],
+            "basePrice": 9.85,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/7",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 7,
+            "title": "The Divine Comedy",
+            "author": "Dante Alighieri",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/7",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 7,
+                    "name": "Dante Alighieri"
+                }
+            ],
+            "basePrice": 15.35,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/8",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 8,
+            "title": "Faust",
+            "author": "Johann Wolfgang von Goethe",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/8",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 8,
+                    "name": "Johann Wolfgang von Goethe"
+                }
+            ],
+            "basePrice": 11.49,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/9",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 9,
+            "title": "Hunger",
+            "author": "Knut  Hamsun",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/9",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 9,
+                    "name": "Knut  Hamsun"
+                }
+            ],
+            "basePrice": 16.00,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/10",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 10,
+            "title": "Love in the Time of Cholera",
+            "author": "Gabriel García Márquez",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/10",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 10,
+                    "name": "Gabriel García Márquez"
+                }
+            ],
+            "basePrice": 9.93,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/11",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 11,
+            "title": "Madame Bovary",
+            "author": "Gustave Flaubert",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/11",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 11,
+                    "name": "Gustave Flaubert"
+                }
+            ],
+            "basePrice": 12.85,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/12",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 12,
+            "title": "The Odyssey",
+            "author": "null Homer",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/12",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 12,
+                    "name": "null Homer"
+                }
+            ],
+            "basePrice": 15.60,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/13",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 13,
+            "title": "Othello",
+            "author": "William Shakespeare",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/13",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 13,
+                    "name": "William Shakespeare"
+                }
+            ],
+            "basePrice": 9.85,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/14",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 14,
+            "title": "Things Fall Apart",
+            "author": "Chinua Achebe",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/14",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 14,
+                    "name": "Chinua Achebe"
+                }
+            ],
+            "basePrice": 10.71,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/15",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 15,
+            "title": "Ulysses",
+            "author": "James Joyce",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/15",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 15,
+                    "name": "James Joyce"
+                }
+            ],
+            "basePrice": 6.98,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/16",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 16,
+            "title": "War and Peace",
+            "author": "Leo Tolstoy",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/5",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 5,
+                    "name": "Leo Tolstoy"
+                }
+            ],
+            "basePrice": 13.59,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/17",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 17,
+            "title": "Invisible Man",
+            "author": "Ralph Ellison",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/16",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 16,
+                    "name": "Ralph Ellison"
+                }
+            ],
+            "basePrice": 12.79,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/18",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 18,
+            "title": "Jacques the Fatalist and His Master",
+            "author": "Denis Diderot",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/17",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 17,
+                    "name": "Denis Diderot"
+                }
+            ],
+            "basePrice": 13.80,
+            "discountRate": 0
+        },
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/19",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "idOfBook": 19,
+            "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+            "author": "John Vlissides, Ralph Johnson, Erich Gamma, Richard Helm",
+            "authorsOfBook": [
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/18",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 18,
+                    "name": "Erich Gamma"
+                },
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/19",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 19,
+                    "name": "Richard Helm"
+                },
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/20",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 20,
+                    "name": "Ralph Johnson"
+                },
+                {
+                    "links": [
+                        {
+                            "href": "http://192.168.99.100:8080/bookshop/rest/authors/21",
+                            "rel": "author_details",
+                            "method": "GET"
+                        }
+                    ],
+                    "authorId": 21,
+                    "name": "John Vlissides"
+                }
+            ],
+            "basePrice": 54.57,
+            "discountRate": 0
+        }
+    ]
+}

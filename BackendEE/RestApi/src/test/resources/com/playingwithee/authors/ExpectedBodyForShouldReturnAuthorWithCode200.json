@@ -1,0 +1,27 @@
+{
+    "links": [
+        {
+            "href": "http://192.168.99.100:8080/bookshop/rest/authors/10",
+            "rel": "self",
+            "method": "GET"
+        }
+    ],
+    "authorId": 10,
+    "name": "Gabriel",
+    "surname": "García Márquez",
+    "birthDate": "1927-03-06",
+    "deathDate": "2014-04-14",
+    "booksOfAuthor": [
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/books/10",
+                    "rel": "book_details",
+                    "method": "GET"
+                }
+            ],
+            "id": 10,
+            "title": "Love in the Time of Cholera"
+        }
+    ]
+}

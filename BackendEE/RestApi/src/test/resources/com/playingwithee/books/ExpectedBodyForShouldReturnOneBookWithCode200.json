@@ -1,0 +1,37 @@
+{
+    "links": [
+        {
+            "href": "http://192.168.99.100:8080/bookshop/rest/books/1",
+            "rel": "self",
+            "method": "GET"
+        },
+        {
+            "href": "http://192.168.99.100:8080/bookshop/rest/books",
+            "rel": "book_list",
+            "method": "GET"
+        }
+    ],
+    "idOfBook": 1,
+    "title": "1984",
+    "authors": "George Orwell",
+    "description": "Written in 1948, 1984 was George Orwell’s chilling prophecy about the future. And while 1984 has come and gone, his dystopian vision of a government that will do anything to control the narrative is timelier than ever...",
+    "dateOfPublishing": "1961-01-01",
+    "basePrice": 6.00,
+    "authorsOfBook": [
+        {
+            "links": [
+                {
+                    "href": "http://192.168.99.100:8080/bookshop/rest/authors/1",
+                    "rel": "author_details",
+                    "method": "GET"
+                }
+            ],
+            "authorId": 1,
+            "name": "George Orwell"
+        }
+    ],
+    "discounts": [
+        
+    ],
+    "isbn": "978-0451524935"
+}
