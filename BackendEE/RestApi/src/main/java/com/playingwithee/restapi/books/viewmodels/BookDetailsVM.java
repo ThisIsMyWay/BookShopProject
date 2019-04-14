@@ -8,6 +8,7 @@ import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -30,7 +31,7 @@ public class BookDetailsVM extends HateoasSupportingVM {
 
     private BigDecimal basePrice;
 
-    private Set<AuthorOfBookVM> authorsOfBook;
+    private List<AuthorOfBookVM> authorsOfBook;
 
     private Set<DiscountVM> discounts;
 

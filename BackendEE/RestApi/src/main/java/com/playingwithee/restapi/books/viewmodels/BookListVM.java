@@ -2,17 +2,17 @@ package com.playingwithee.restapi.books.viewmodels;
 
 import com.playingwithee.restapi.hateoas.HateoasSupportingVM;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class BookListVM extends HateoasSupportingVM {
 
-    private Set<BookListItemVM> bookList;
+    private List<BookListItemVM> bookList;
 
-    public Set<BookListItemVM> getBookList() {
+    public List<BookListItemVM> getBookList() {
         if (bookList == null){
-            bookList = new HashSet<>();
+            bookList = new ArrayList<>();
         }
         return bookList;
     }
