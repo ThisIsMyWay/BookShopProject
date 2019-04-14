@@ -14,6 +14,11 @@ services:
       - bookShopDB
     volumes:
       - ./artifacts:/opt/jboss/wildfly/standalone/deployments
+    healthcheck:
+     test: ["CMD", "curl", "-f", "http://192.168.99.100:9990"]
+     interval: 10s
+     timeout: 10s
+     retries: 10
   bookShopDB:
     image: postgres:11-alpine
     ports:
