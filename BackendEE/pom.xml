@@ -11,9 +11,9 @@
     <properties>
         <version.jdk>10</version.jdk>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.jaxrs>1.0.1.Final</version.jaxrs>
-        <cdi-api.version>2.0</cdi-api.version>
-        <jboss-ejb-api_3.2_spec.version>1.0.1.Final</jboss-ejb-api_3.2_spec.version>
+        <version.jaxrs>1.0.2.Final</version.jaxrs>
+        <cdi-api.version>2.0.SP1</cdi-api.version>
+        <jboss-ejb-api_3.2_spec.version>1.0.2.Final</jboss-ejb-api_3.2_spec.version>
         <maven-ejb-plugin.version>3.0.1</maven-ejb-plugin.version>
         <maven-ejb-plugin.ejbVersion>3.2</maven-ejb-plugin.ejbVersion>
         <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
@@ -23,12 +23,12 @@
         <gmavenplus-plugin.version>1.5</gmavenplus-plugin.version>
         <wildfly-maven-plugin.version>2.0.1.Final</wildfly-maven-plugin.version>
         <maven-failsafe-plugin.version>3.0.0-M3</maven-failsafe-plugin.version>
-        <hibernate-entitymanager.version>5.1.14.Final</hibernate-entitymanager.version>
+        <hibernate-entitymanager.version>5.3.9.Final</hibernate-entitymanager.version>
         <lombok.version>1.18.2</lombok.version>
         <commons-io.version>2.5</commons-io.version>
-        <jboss-logging.version>3.3.1.Final</jboss-logging.version>
+        <jboss-logging.version>3.3.2.Final</jboss-logging.version>
         <spock-core.version>1.2-groovy-2.4</spock-core.version>
-        <jboss-annotations-api_1.2_spec.version>1.0.0.Final</jboss-annotations-api_1.2_spec.version>
+        <jboss-annotations-api_1.2_spec.version>1.0.1.Final</jboss-annotations-api_1.2_spec.version>
         <resteasy-jackson2-provider.version>3.5.1.Final</resteasy-jackson2-provider.version>
         <integration-test.skip>true</integration-test.skip>
         <rest-assured.version>3.3.0</rest-assured.version>
