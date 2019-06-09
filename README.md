@@ -1,9 +1,15 @@
 # BookShopProject
 The purpose of this project is to play with jee and surrounding technologies.
 
-# Used tools/more important libraries
+# Used technologies/more important libraries
 
-TODO 
+- Docker
+- Rest-assured
+- Spock
+- HATEOAS
+
+TODO:
+- React.js ( JS and react learning in progress :D) 
 
 # How to run application
 
